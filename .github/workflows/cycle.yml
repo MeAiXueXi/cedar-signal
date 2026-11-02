@@ -1,0 +1,55 @@
+name: Cycle
+
+on:
+  schedule:
+    - cron: '43 20 * * *'
+  workflow_dispatch:
+    inputs:
+      sample:
+        description: 'Number of entries; zero selects the full input'
+        type: number
+        default: 0
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cycle
+  cancel-in-progress: false
+
+jobs:
+  run:
+    if: github.event_name != 'schedule' || vars.CYCLE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    env:
+      TARGET_DOMAIN: ${{ vars.TARGET_DOMAIN }}
+      SAMPLE: ${{ github.event_name == 'workflow_dispatch' && inputs.sample || 0 }}
+      CONCURRENCY: ${{ vars.REQUEST_CONCURRENCY || '50' }}
+      REQUEST_TIMEOUT: ${{ vars.REQUEST_TIMEOUT || '6' }}
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install
+        run: python -m pip install -r requirements.txt
+      - name: Check
+        run: python -m unittest discover -s tests
+      - name: Run
+        run: |
+          python runner.py --domain "$TARGET_DOMAIN" --sample "$SAMPLE" \
+            --concurrency "$CONCURRENCY" --timeout "$REQUEST_TIMEOUT" \
+            --max-seconds 18000 --direct --output runs/current
+      - name: Keep results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: results-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/current/
+          if-no-files-found: ignore
+          retention-days: 7

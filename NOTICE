@@ -1,0 +1,13 @@
+Input snapshot: 2026-11-02. Source metadata is in data/sources.csv.
+The input contains 146250 distinct URL templates with the marker {{DOMAIN}}.
+Per-source new counts overlap. Final merging removes cross-source duplicates,
+fragments, credentials, local addresses and nonstandard ports. Final additions
+from the four later collections total 13470 after root validation.
+Source URLs are retained as factual provenance. These are unverified request
+templates; a response or redirect does not prove a published or indexed link.
+
+Configure the bare target hostname in repository Actions variable TARGET_DOMAIN.
+The scheduled job reads that configuration at runtime. No target is hardcoded.
+The runner has no browser, account login, proxy rotation or redirect following.
+Direct mode rejects nonpublic DNS answers. TLS verification is enabled.
+Results are stored as an Actions artifact; they are never committed to the repo.

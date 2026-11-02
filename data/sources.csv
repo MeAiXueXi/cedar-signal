@@ -1,0 +1,10 @@
+source,original_rows,distinct_in_source,new_vs_baseline_before_cross_source_dedup,excluded,content_hash,source_url
+panzer,129876,129850,129850,25,e16551c62d875d359ab5ed4776c0cf38d6780a30,https://github.com/infohtreasure/SEO-Backlink-Panzer
+backlinker,3000,2884,2881,16,0932fbf5e1754bacde6891485e3a6ae9031b167f,https://github.com/h4cklinker/Backlinker/blob/master/urlbacklinks.json
+links,3000,2884,0,16,28c2ec3c9432f45b8bfac0c79a7cec63d9713e8a,https://github.com/tegal1337/LinkS/blob/master/backlink.json
+seo-in-ngabs,3000,2884,0,16,3e00acdf60661bd93f4446f2347e5dc821fd2524,https://github.com/InMyMine7/SeOinNgabs/blob/main/backlink.json
+whois,53,53,49,0,eb2ab61a6a53f73725c4efc49f5894970d162121,https://github.com/reborniot/whois-backlink-generator/blob/main/script.js
+kozzonm-gist,11686,11602,10206,8,4359FD0F16A47AD413A025258273E077B75A65321DE2A1A67B850114AA5BD828,https://gist.githubusercontent.com/kozzonm/924bb76cf4efd29acd26cd0f8ba04df2/raw/8ee99213332b24f1de866bc3c98a98b781f65893/gistfile1
+itsbalamurali-gist,573,567,495,0,34CEE469E6FA5EEC86B8824D7D9E6DA4B7B88CFF6C2F0F9A2F6F48E17A6D0CC3,https://gist.githubusercontent.com/itsbalamurali/2fa1bc7b2c8616613718/raw/fc1fe8502c80a7fe5e8851604e75e05c26b3d855/seo%20backlinks
+hoothin,4600,4543,2627,57,897441599E61719B930679857065072BDA0EB59FFC2FBC334F56F7A2FABF3398,https://raw.githubusercontent.com/hoothin/UrlChecker/92ac82da80ac8cfc83e1724c275f59306d87cd0a/backlinks.txt
+ulasangue,247,247,193,0,EDD610A611EB6EA1ADEFA8FF532073507B109A7817D8DE3560CC6BC8B98E06FA,https://raw.githubusercontent.com/ulasangue/list-backlink-google-new/8d97c9e544e1e673e46edc3f4647f0539e3b2546/My_List.txt
